@@ -11,6 +11,7 @@ import 'package:gm_action/model/hive_favarite.dart';
 import 'package:gm_action/view/screen/Topgame_webview.dart';
 import 'package:gm_action/view/screen/game_landing.dart';
 import 'package:hive/hive.dart';
+import 'package:unity_ads_plugin/unity_ads.dart';
 
 class GameSlider extends StatefulWidget {
   const GameSlider({Key? key}) : super(key: key);
@@ -29,13 +30,35 @@ class _GameSliderState extends State<GameSlider> {
     super.initState();
     categorycontroller.fetchcategorygame();
     controller.fetchtopgame();
-    setState(() {});
+    UnityAds.init(
+      gameId: "4424597",
+      
+    );
+  }
+
+  void loadVideoAd() async {
+    UnityAds.isReady(placementId: "Rewarded_Android").then((value) {
+      if (value == true) {
+        UnityAds.showVideoAd(
+            placementId: "Rewarded_Android",
+            listener: (state, args) {
+              if (state == UnityAdState.complete) {
+                print("VIDEO IS COMPLETED");
+              } else if (state == UnityAdState.skipped) {
+                print("VIDEO IS SKIPPED");
+              }
+            });
+      } else {
+        print("AD IS NOT READY");
+      }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    // SystemChrome.setEnabledSystemUIOverlays([]); 
-     SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.top, SystemUiOverlay.bottom]);
+    // SystemChrome.setEnabledSystemUIOverlays([]);
+    SystemChrome.setEnabledSystemUIOverlays(
+        [SystemUiOverlay.top, SystemUiOverlay.bottom]);
 
     return Obx(
       () => (categorycontroller.isload.value
@@ -54,16 +77,18 @@ class _GameSliderState extends State<GameSlider> {
                   itemBuilder:
                       (BuildContext context, int itemIndex, int pageViewIndex) {
                     return InkWell(
-                      onTap: () => Get.to(Gamelanding(
-                        desc: controller.topgamelist[itemIndex].description,
-                        icon:"https://kurminfotech.in/gamemania/" + controller.topgamelist[itemIndex].icon,
-                        img:"https://kurminfotech.in/gamemania/" + controller.topgamelist[itemIndex].image,
-                        name: controller.topgamelist[itemIndex].name,
-                        website: controller.topgamelist[itemIndex].website,
-                      )
-                          // TopgameWebView(
-                          //   weblink: controller.topgamelist[itemIndex].website)
-                          ),
+                      onTap: () {
+                        loadVideoAd();
+                        Get.to(Gamelanding(
+                          desc: controller.topgamelist[itemIndex].description,
+                          icon: "https://kurminfotech.in/gamemania/" +
+                              controller.topgamelist[itemIndex].icon,
+                          img: "https://kurminfotech.in/gamemania/" +
+                              controller.topgamelist[itemIndex].image,
+                          name: controller.topgamelist[itemIndex].name,
+                          website: controller.topgamelist[itemIndex].website,
+                        ));
+                      },
                       child: Container(
                         margin: const EdgeInsets.all(5.0),
                         child: ClipRRect(
@@ -154,30 +179,40 @@ class _GameSliderState extends State<GameSlider> {
                     return Padding(
                         padding: const EdgeInsets.all(10),
                         child: InkWell(
-                          onTap: () => Get.to(Gamelanding(
-                            desc: categorycontroller.categoryamelist[index].description,
-                            icon:"https://kurminfotech.in/gamemania/" + categorycontroller.categoryamelist[index].icon,
-                            img:"https://kurminfotech.in/gamemania/" + categorycontroller.categoryamelist[index].image,
-                            name: categorycontroller.categoryamelist[index].name,
-                            website: categorycontroller.categoryamelist[index].website,
-                          )
+                          onTap: () {
+                            loadVideoAd();
+                            Get.to(Gamelanding(
+                              desc: categorycontroller
+                                  .categoryamelist[index].description,
+                              icon: "https://kurminfotech.in/gamemania/" +
+                                  categorycontroller
+                                      .categoryamelist[index].icon,
+                              img: "https://kurminfotech.in/gamemania/" +
+                                  categorycontroller
+                                      .categoryamelist[index].image,
+                              name: categorycontroller
+                                  .categoryamelist[index].name,
+                              website: categorycontroller
+                                  .categoryamelist[index].website,
+                            )
 
-                              // TopgameWebView(
-                              //   weblink: categorycontroller
-                              //       .categoryamelist[index].website)
+                                // TopgameWebView(
+                                //   weblink: categorycontroller
+                                //       .categoryamelist[index].website)
 
-                              ),
+                                );
+                          },
                           child: Stack(
                             children: [
                               Container(
                                 height: 250,
                                 width: 250,
-                                decoration:   BoxDecoration(
-                                  
-                                  border:  Border.all(color: Colors.white,width: 3),
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(14.0)),
-                                     ),
+                                decoration: BoxDecoration(
+                                  border:
+                                      Border.all(color: Colors.white, width: 3),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(14.0)),
+                                ),
                                 child: Obx(() => categorycontroller.isload.value
                                     ? FittedBox(
                                         child: ClipRRect(
@@ -202,8 +237,6 @@ class _GameSliderState extends State<GameSlider> {
                                 right: 5,
                                 child: InkWell(
                                   onTap: () async {
-                                    print(
-                                        "list from slider delete ${favarite_controller.favaritelist}");
 
                                     if (favarite_controller.favaritelist
                                         .contains(categorycontroller
@@ -216,9 +249,9 @@ class _GameSliderState extends State<GameSlider> {
                                       favarite_controller.favaritelist.remove(
                                           categorycontroller
                                               .categoryamelist[index].id);
+                                    print("list from slider delete ${favarite_controller.favaritelist}");
                                     } else {
-                                      print(
-                                          "list from slider add ${favarite_controller.favaritelist}");
+                                     
 
                                       DataModel addfavaritegame = new DataModel(
                                         catname: "Action",
@@ -235,6 +268,7 @@ class _GameSliderState extends State<GameSlider> {
                                             .categoryamelist[index].rating,
                                         website: categorycontroller
                                             .categoryamelist[index].website,
+
                                       );
                                       var box = await Hive.openBox<DataModel>(
                                           'favaritegamebox');
@@ -246,7 +280,9 @@ class _GameSliderState extends State<GameSlider> {
                                       favarite_controller.favaritelist.add(
                                           categorycontroller
                                               .categoryamelist[index].id);
-                                      ;
+                                      
+                                       print(
+                                          "list from slider add ${favarite_controller.favaritelist}");
                                     }
                                   },
                                   child: Obx(
@@ -294,7 +330,6 @@ class _GameSliderState extends State<GameSlider> {
                                             // ignore: prefer_const_constructors
                                             style: TextStyle(
                                               color: Colors.white,
-                                              
                                               fontSize: 15.0,
                                               fontWeight: FontWeight.bold,
                                             ),

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/utils.dart';
+import 'package:gm_action/model/hive_favarite.dart';
+import 'package:hive/hive.dart';
 
 import 'package:unity_ads_plugin/unity_ads.dart';
 import 'package:gm_action/view/screen/Topgame_webview.dart';
@@ -19,31 +21,8 @@ class Gamelanding extends StatefulWidget {
 
 class _GamelandingState extends State<Gamelanding> {
   @override
-  void initState() {
-    UnityAds.init(
-      gameId: "4125684",
-      testMode: true,
-    );
-  }
-
-  void loadVideoAd() async {
-    UnityAds.isReady(placementId: "Video_Android").then((value) {
-      if (value == true) {
-        UnityAds.showVideoAd(
-            placementId: "Video_Android",
-            listener: (state, args) {
-              if (state == UnityAdState.complete) {
-                print("VIDEO IS COMPLETED");
-              } else if (state == UnityAdState.skipped) {
-                print("VIDEO IS SKIPPED");
-              }
-            });
-      } else {
-        print("AD IS NOT READY");
-      }
-    });
-  }
-
+   
+   
   @override
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIOverlays([]);
@@ -53,7 +32,9 @@ class _GamelandingState extends State<Gamelanding> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Image.network(widget.img),
+          Container(
+            height:MediaQuery.of(context).size .height * 0.30,
+            child: Image.network(widget.img,fit: BoxFit.fitWidth,)),
           ClipRRect(
               borderRadius: BorderRadius.circular(25),
               child: Image.network(
@@ -84,10 +65,10 @@ class _GamelandingState extends State<Gamelanding> {
                   "Start Game",
                   style: TextStyle(fontSize: 20),
                 ),
-                onPressed: () {loadVideoAd();
-                  // Get.to(TopgameWebView(
-                  //   weblink: widget.website,
-                  // ));
+                onPressed: () { 
+                  Get.to(TopgameWebView(
+                    weblink: widget.website,
+                  ));
                 },
               ),
             ),

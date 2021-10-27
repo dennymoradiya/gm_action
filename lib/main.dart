@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:gm_action/model/category_game.dart';
 import 'package:gm_action/model/hive_favarite.dart';
@@ -13,6 +14,8 @@ import 'controller/favarite_controller.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations(
+  [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   Directory directory = await getApplicationDocumentsDirectory();
   Hive.init(directory.path);
   Hive.registerAdapter(DataModelAdapter());
@@ -60,7 +63,7 @@ class _MyAppState extends State<MyApp> {
               Padding(
                 padding: const EdgeInsets.only(left: 6, right: 6),
                 child: Text(
-                  "GM - Action Game",
+                  "Action Game",
                   style: TextStyle(
                     color: Colors.redAccent,
                     overflow: TextOverflow.fade,

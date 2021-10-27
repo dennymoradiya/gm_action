@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/utils.dart';
-import 'package:gm_action/model/hive_favarite.dart';
+import 'package:ActionGame/model/hive_favarite.dart';
 import 'package:hive/hive.dart';
 
 import 'package:unity_ads_plugin/unity_ads.dart';
-import 'package:gm_action/view/screen/Topgame_webview.dart';
+import 'package:ActionGame/view/screen/Topgame_webview.dart';
 
 class Gamelanding extends StatefulWidget {
   final img, name, icon, desc, website;

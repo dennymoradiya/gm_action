@@ -4,12 +4,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:gm_action/controller/category_controller.dart';
-import 'package:gm_action/controller/favarite_controller.dart';
-import 'package:gm_action/controller/topgame_controller.dart';
-import 'package:gm_action/model/hive_favarite.dart';
-import 'package:gm_action/view/screen/Topgame_webview.dart';
-import 'package:gm_action/view/screen/game_landing.dart';
+import 'package:ActionGame/controller/category_controller.dart';
+import 'package:ActionGame/controller/favarite_controller.dart';
+import 'package:ActionGame/controller/topgame_controller.dart';
+import 'package:ActionGame/model/hive_favarite.dart';
+import 'package:ActionGame/view/screen/Topgame_webview.dart';
+import 'package:ActionGame/view/screen/game_landing.dart';
 import 'package:hive/hive.dart';
 import 'package:unity_ads_plugin/unity_ads.dart';
 
@@ -296,7 +296,7 @@ class _GameSliderState extends State<GameSlider> {
                                           )
                                         : Icon(
                                             Icons.favorite_outline_sharp,
-                                            // color: Colors.grey ,
+                                            color: Colors.red ,
                                             size: 30,
                                           ),
                                   ),

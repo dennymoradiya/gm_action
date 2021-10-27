@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:gm_action/api/topgame_connection.dart';
-import 'package:gm_action/model/top_gamemodel.dart';
-import 'package:gm_action/view/widget/gameslider.dart';
+import 'package:ActionGame/api/topgame_connection.dart';
+import 'package:ActionGame/model/top_gamemodel.dart';
+import 'package:ActionGame/view/widget/gameslider.dart';
 
 class Topgamecontroller  extends GetxController
 {

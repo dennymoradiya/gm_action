@@ -1,12 +1,12 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gm_action/api/topgame_connection.dart';
-import 'package:gm_action/controller/getcontroller.dart';
-import 'package:gm_action/model/top_gamemodel.dart';
-import 'package:gm_action/view/screen/Favarite_screen.dart';
-import 'package:gm_action/view/widget/drawer.dart';
-import 'package:gm_action/view/widget/gameslider.dart';
+import 'package:ActionGame/api/topgame_connection.dart';
+import 'package:ActionGame/controller/getcontroller.dart';
+import 'package:ActionGame/model/top_gamemodel.dart';
+import 'package:ActionGame/view/screen/Favarite_screen.dart';
+import 'package:ActionGame/view/widget/drawer.dart';
+import 'package:ActionGame/view/widget/gameslider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

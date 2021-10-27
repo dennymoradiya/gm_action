@@ -2,8 +2,8 @@
 
 import 'package:connectivity/connectivity.dart';
 import 'package:get/get.dart';
-import 'package:gm_action/api/topgame_connection.dart';
-import 'package:gm_action/model/top_gamemodel.dart';
+import 'package:ActionGame/api/topgame_connection.dart';
+import 'package:ActionGame/model/top_gamemodel.dart';
 
 class Controller extends GetxController {
   var currentIndex = 0.obs;

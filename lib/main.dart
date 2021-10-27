@@ -3,10 +3,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:gm_action/model/category_game.dart';
-import 'package:gm_action/model/hive_favarite.dart';
-import 'package:gm_action/view/screen/Favarite_screen.dart';
-import 'package:gm_action/view/screen/Home_screen.dart';
+import 'package:ActionGame/model/category_game.dart';
+import 'package:ActionGame/model/hive_favarite.dart';
+import 'package:ActionGame/view/screen/Favarite_screen.dart';
+import 'package:ActionGame/view/screen/Home_screen.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -50,7 +50,7 @@ class _MyAppState extends State<MyApp> {
       //   primarySwatch: Colors.purple,
       // ),
       debugShowCheckedModeBanner: false,
-      title: 'GM - Action Game',
+      title: 'Action Game GM',
       home: Scaffold(
         body: Center(
           child: Column(

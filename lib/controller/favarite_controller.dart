@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:gm_action/model/hive_favarite.dart';
+import 'package:ActionGame/model/hive_favarite.dart';
 import 'package:hive/hive.dart';
 
 class favaritecontroller extends GetxController {

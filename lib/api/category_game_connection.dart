@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:gm_action/model/category_game.dart';
+import 'package:ActionGame/model/category_game.dart';
 import 'package:http/http.dart' as http;
 
  

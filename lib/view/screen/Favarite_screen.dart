@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gm_action/controller/favarite_controller.dart';
-import 'package:gm_action/model/hive_favarite.dart';
-import 'package:gm_action/view/screen/Topgame_webview.dart';
-import 'package:gm_action/view/screen/game_landing.dart';
+import 'package:ActionGame/controller/favarite_controller.dart';
+import 'package:ActionGame/model/hive_favarite.dart';
+import 'package:ActionGame/view/screen/Topgame_webview.dart';
+import 'package:ActionGame/view/screen/game_landing.dart';
 import 'package:hive/hive.dart';
 
 

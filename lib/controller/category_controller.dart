@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:gm_action/api/category_game_connection.dart';
-import 'package:gm_action/model/category_game.dart';
+import 'package:ActionGame/api/category_game_connection.dart';
+import 'package:ActionGame/model/category_game.dart';
 
 class categorygamecontroller  extends GetxController
 {

@@ -23,7 +23,7 @@ Future<Categorygame?> fetchcategorydata() async {
    headers: {
       "Content-Type": "application/json",
     },
-     body: json.encode({'cat_id': 7}),
+     body: json.encode({'cat_id': 6}),
      encoding : Encoding.getByName('utf-8')
   );
 

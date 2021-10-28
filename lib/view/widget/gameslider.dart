@@ -168,13 +168,7 @@ class _GameSliderState extends State<GameSlider> {
                   ),
                   delegate: SliverChildBuilderDelegate(
                       (BuildContext context, int index) {
-                    // if (categorycontroller.isload.value) {
-                    //    print("id is ${categorycontroller.categoryamelist[index].id}  favarite list ${favarite_controller.favaritelist}   condition is${categorycontroller.isload.value &&
-                    //                     favarite_controller.favaritelist.contains(
-                    //                         categorycontroller
-                    //                             .categoryamelist[index].id)}");
-
-                    // }
+                     
 
                     return Padding(
                         padding: const EdgeInsets.all(10),
@@ -249,7 +243,7 @@ class _GameSliderState extends State<GameSlider> {
                                       favarite_controller.favaritelist.remove(
                                           categorycontroller
                                               .categoryamelist[index].id);
-                                    print("list from slider delete ${favarite_controller.favaritelist}");
+                                    // print("list from slider delete ${favarite_controller.favaritelist}");
                                     } else {
                                      
 
@@ -281,8 +275,8 @@ class _GameSliderState extends State<GameSlider> {
                                           categorycontroller
                                               .categoryamelist[index].id);
                                       
-                                       print(
-                                          "list from slider add ${favarite_controller.favaritelist}");
+                                      //  print(
+                                      //     "list from slider add ${favarite_controller.favaritelist}");
                                     }
                                   },
                                   child: Obx(

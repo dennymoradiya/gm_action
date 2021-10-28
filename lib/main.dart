@@ -1,5 +1,8 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:ActionGame/controller/getcontroller.dart';
+import 'package:ActionGame/view/widget/gameslider.dart';
+import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -15,7 +18,7 @@ import 'controller/favarite_controller.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations(
-  [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   Directory directory = await getApplicationDocumentsDirectory();
   Hive.init(directory.path);
   Hive.registerAdapter(DataModelAdapter());
@@ -30,13 +33,21 @@ class MyApp extends StatefulWidget {
   State<MyApp> createState() => _MyAppState();
 }
 
+bool internet = false;
+void internetcheck() async {
+  
+}
+
 class _MyAppState extends State<MyApp> {
   @override
   // ignore: must_call_super
   void initState() {
+  
     super.initState();
+      Controller controller = Get.put(Controller());
 
     Timer(const Duration(seconds: 3), () => Get.off(() => const HomeScreen()));
+
   }
 
   @override

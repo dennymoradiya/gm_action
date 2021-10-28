@@ -79,6 +79,23 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           )
-        : Center(child: CircularProgressIndicator()));
+        : 
+        Scaffold(
+          body:
+           AlertDialog(
+              title: Text("Alert"),
+              content: Text("Internet Not Connected"),
+              actions: [
+                TextButton(
+                  child: Text("OK"),
+                  onPressed: () {
+                    print("clicked");
+                    controller.checkinternet();
+                  },
+                )
+              ],
+            ),
+        )
+          );
   }
 }

@@ -7,20 +7,19 @@ import 'package:ActionGame/model/top_gamemodel.dart';
 
 class Controller extends GetxController {
   var currentIndex = 0.obs;
-  RxBool isinternetconnect = true .obs;
+  RxBool isinternetconnect = false.obs;
 
   void checkinternet() async {
-  var connectivityResult = await (Connectivity().checkConnectivity());
-  if (connectivityResult == ConnectivityResult.mobile ||
-      connectivityResult == ConnectivityResult.wifi) {
-    isinternetconnect.value == true;
+    var connectivityResult = await (Connectivity().checkConnectivity());
+    if (connectivityResult == ConnectivityResult.mobile
+        ||
+            connectivityResult == ConnectivityResult.wifi
+        ) {
+      print("connect");
+      isinternetconnect.value = true;
+    } else {
+      print("not connect");
+      print("connection ${connectivityResult}");
+    }
   }
-}
-
-     
-
-  
-  
-
-  
 }
